@@ -26,13 +26,23 @@
         <div id="day01" class="panel-collapse collapse in">
           <div class="panel-body">
             <p>车票信息</p>
-            <p class="txtIndent2">中午12:34出发 下午14:17到达</p>
+            <p class="txtIndent2">中午12:34出发 下午14:17到达(宝宝)</p>
             <p>住宿信息</p>
             <p class="txtIndent2">1314情侣度假屋(武汉群星城店)</p>
             <p>游玩路线</p>
             <p class="txtIndent2">汉口江滩(酒店出发乘8号线约31分钟)</p>
             <p>游玩攻略</p>
-            <p class="txtIndent2">情侣石凳(琴台大剧院对面的江滩上，江汉一桥的下面)</p>
+            <p class="txtIndent2">1.汉口江滩儿童友好公园</p>
+            <p class="txtIndent2">2.骑双人车</p>
+            <p class="txtIndent2">3.坐轮渡(码头)</p>
+            <div class="img-box scroll-x">
+              <div class="content">
+                <img src="./imgs/Children'sPlayground1.png">
+                <img src="./imgs/Children'sPlayground2.png">
+                <img src="./imgs/HankouBeach.jpg">
+              </div>
+            </div>
+            <!-- <p class="txtIndent2">一定要去情侣石凳(琴台大剧院对面的汉江江滩上，江汉一桥的下面)</p> -->
           </div>
         </div>
       </div>
@@ -116,10 +126,27 @@
       </table>
     </div> -->
   </div>
+  <div id="fullPage">
+    <canvas id="canvas" width="360" height="640"></canvas>
+  </div>
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous"></script>
+  <script src="./js/wxScale.js"></script>
+  <script type="text/javascript">
+    var wxScale = new WxScale({
+      fullPage: document.querySelector("#fullPage"),
+      canvas: document.querySelector("#canvas")
+    });
+
+    var imgBox = document.querySelectorAll(".img-box img");
+    for (var i = 0; i < imgBox.length; i++) {
+      imgBox[i].onclick = function (e) {
+        wxScale.start(this);
+      }
+    }
+  </script>
 </body>
 
 </html>
